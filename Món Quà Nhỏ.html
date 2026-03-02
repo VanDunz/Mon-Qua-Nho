@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift For You 💝</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="bg-music" loop></audio>
+
+<!-- Popup mật khẩu -->
+<div class="overlay show" id="passBox">
+    <div class="pass-box">
+        <div class="pass-photo">
+            <img src="1.jpg" alt="Ảnh của em">
+        </div>
+        <h2>🔒 Mật khẩu của em</h2>
+        <p class="pass-sub">Nhập đúng mã bí mật mới xem được quà nha</p>
+
+        <div class="pass-dots" id="passDots">
+            <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="pass-error" id="passError"></div>
+
+        <div class="pass-grid">
+            <button class="pass-key" data-num="1">1</button>
+            <button class="pass-key" data-num="2">2</button>
+            <button class="pass-key" data-num="3">3</button>
+            <button class="pass-key" data-num="4">4</button>
+            <button class="pass-key" data-num="5">5</button>
+            <button class="pass-key" data-num="6">6</button>
+            <button class="pass-key" data-num="7">7</button>
+            <button class="pass-key" data-num="8">8</button>
+            <button class="pass-key" data-num="9">9</button>
+            <button class="pass-empty"></button>
+            <button class="pass-key" data-num="0">0</button>
+            <button class="pass-del">⌫</button>
+        </div>
+    </div>
+</div>
+
+<!-- Popup nhập tên -->
+<div class="overlay" id="nameBox">
+    <div class="letter-box">
+        <h2>💖 Tên béee</h2>
+        <input type="text" id="receiverName" placeholder=" Như ❤️">
+        <button onclick="saveName()">OK</button>
+    </div>
+</div>
+
+<!-- Popup thư -->
+<div class="overlay" id="letterBox">
+    <div class="letter-box">
+        <h2>💌 Gửi <span id="nameText">Em</span></h2>
+        <p id="letterContent"></p>
+        <button onclick="closeLetter()">Đóng</button>
+    </div>
+</div>
+
+<!-- Popup Image Gallery -->
+<div class="overlay" id="imageBox">
+    <div class="image-box">
+        <button class="image-close" onclick="closeImage()">✕</button>
+        <div class="image-header">
+            <span class="image-title">Những khoảnh khắc của em</span>
+        </div>
+
+        <div class="image-preview">
+            <img id="previewImage" src="1.jpg" alt="Xem ảnh">
+        </div>
+
+        <div class="image-rows">
+            <div class="image-row image-row-1">
+                <img src="1.jpg" alt="Ảnh 1">
+                <img src="2.jpg" alt="Ảnh 2">
+                <img src="3.jpg" alt="Ảnh 3">
+                <img src="4.jpg" alt="Ảnh 4">
+                <img src="5.jpg" alt="Ảnh 5">
+                <img src="6.jpg" alt="Ảnh 6">
+            </div>
+            <div class="image-row image-row-2">
+                <img src="7.jpg" alt="Ảnh 7">
+                <img src="8.jpg" alt="Ảnh 8">
+                <img src="9.jpg" alt="Ảnh 9">
+                <img src="10.jpg" alt="Ảnh 10">
+                <img src="11.jpg" alt="Ảnh 11">
+                <img src="12.jpg" alt="Ảnh 12">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Popup Music Player -->
+<div class="overlay" id="musicBox">
+    <div class="music-box">
+        <button class="music-close" onclick="closeMusic()">✕</button>
+        <div class="music-header">
+            <span class="music-icon">🎵</span>
+            <span class="music-title-text">Nhạc dành cho em</span>
+        </div>
+
+        <div class="music-cover">
+            <img id="musicCover" src="2.jpg" alt="cover">
+        </div>
+
+        <div class="music-track-info">
+            <div id="currentTrackTitle">Track 1</div>
+        </div>
+
+        <div class="music-controls">
+            <button id="btnPrev">⏮</button>
+            <button id="btnPlayPause">▶</button>
+            <button id="btnNext">⏭</button>
+        </div>
+
+        <div class="music-progress">
+            <div id="musicProgressBar"></div>
+        </div>
+
+        <div class="music-playlist" id="songList"></div>
+    </div>
+</div>
+
+<!-- Gift scene giống video -->
+<div class="overlay" id="giftBox">
+    <div class="gift-scene">
+        <div class="gift-frame">
+            <button class="gift-close" onclick="closeGift()">✕</button>
+
+            <div class="gift-heart-bg"></div>
+
+            <div class="gift-top-text">Những món quà mà anh dành cho em ❤️</div>
+
+            <div class="gift-card gift-card-left"></div>
+            <div class="gift-card gift-card-right"></div>
+
+            <div class="gift-flowers">
+                <div class="flower flower-1">
+                    <div class="stem"></div>
+                    <div class="petal petal-1"></div>
+                    <div class="petal petal-2"></div>
+                    <div class="petal petal-3"></div>
+                    <div class="petal petal-4"></div>
+                    <div class="center"></div>
+                </div>
+                <div class="flower flower-2">
+                    <div class="stem"></div>
+                    <div class="petal petal-1"></div>
+                    <div class="petal petal-2"></div>
+                    <div class="petal petal-3"></div>
+                    <div class="petal petal-4"></div>
+                    <div class="center"></div>
+                </div>
+                <div class="flower flower-3">
+                    <div class="stem"></div>
+                    <div class="petal petal-1"></div>
+                    <div class="petal petal-2"></div>
+                    <div class="petal petal-3"></div>
+                    <div class="petal petal-4"></div>
+                    <div class="center"></div>
+                </div>
+                <div class="grass grass-left"></div>
+                <div class="grass grass-right"></div>
+            </div>
+
+            <div class="gift-hearts">
+                <span class="heart-dot h1"></span>
+                <span class="heart-dot h2"></span>
+                <span class="heart-dot h3"></span>
+                <span class="heart-dot h4"></span>
+                <span class="heart-dot h5"></span>
+            </div>
+
+            <div class="gift-text-fall gt1">My heart belongs to you</div>
+            <div class="gift-text-fall gt2">Always with you</div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="menu">
+        <button class="menu-item" id="btn-music">
+            <img src="music.png">
+            <span>Music</span>
+        </button>
+
+        <button class="menu-item" id="btn-letter">
+            <img src="letter.png">
+            <span>Letter</span>
+        </button>
+
+        <button class="menu-item" id="btn-image">
+            <img src="image.png">
+            <span>Image</span>
+        </button>
+
+        <button class="menu-item" id="btn-gift">
+            <img src="gift.png">
+            <span>Gift</span>
+        </button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
